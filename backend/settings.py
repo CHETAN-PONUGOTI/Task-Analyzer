@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&@*3fd&ps#0h$to!+6(o1y)xg&p-2@$y&141m*fedzlq4qibd9' # Use your generated key
 SECRET_KEY = 'django-insecure-o#@a%6i608y#e*o8p87g)n2o6y0r-i@g#6y28@k5t4#b91g*y7' # Use your generated key
 DEBUG = False
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['task-analyzer-1-r6v2.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
