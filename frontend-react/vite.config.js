@@ -8,7 +8,7 @@ export default defineConfig({
     // Proxy API requests from React (e.g., /api/tasks/analyze/) to Django
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: 'https://task-analyzer-1-r6v2.onrender.com',
         changeOrigin: true,
         secure: false,
       }

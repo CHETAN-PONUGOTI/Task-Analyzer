@@ -31,7 +31,8 @@ const TaskCard = ({ task }) => {
 
 
 function App() {
-  // Retaining the default input data for easy testing
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL || ''; 
+  
   const [taskInput, setTaskInput] = useState(`[
     {"id": 1, "title": "Finish Report Draft", "due_date": "2025-12-05", "importance": 9, "estimated_hours": 4},
     {"id": 2, "title": "Email HR about vacation", "due_date": "2025-12-01", "importance": 5, "estimated_hours": 1},
@@ -53,8 +54,8 @@ function App() {
       const tasks = JSON.parse(taskInput);
       if (!Array.isArray(tasks)) throw new Error('Input must be a JSON array.');
 
-      // Proxy handles /api/tasks/... call to Django
-      const response = await fetch(`/api/tasks/${endpoint}/`, {
+      // UPDATED FETCH CALL: Construct the full URL using BASE_URL
+      const response = await fetch(`${BASE_URL}/api/tasks/${endpoint}/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tasks)
