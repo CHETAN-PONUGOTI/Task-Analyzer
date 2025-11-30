@@ -1,0 +1,178 @@
+/* GLOBAL RESETS AND FONT */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0; 
+}
+
+.app-container {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    width: 1500px;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    /* FIX 5: Adjust font size for the main title on large screens */
+    font-size: 2.2em;
+    margin: 0;
+}
+
+/* MAIN CONTENT LAYOUT - Centered and Width-Limited */
+main {
+    display: flex;
+    gap: 20px;
+  
+    width: 90%;       /* Ensures responsiveness on standard desktops/laptops */
+    margin: 20px auto; /* Centers the block horizontally */
+    
+    flex-grow: 1; 
+}
+
+/* INPUT AND RESULTS CONTAINERS */
+.input-container, .results-container {
+    /* FIX 3: Flex-grow ensures they share the main content width equally */
+    flex: 1; 
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* RESULTS PANEL SPECIFIC STYLING (The Overflow Fix) */
+.results-container {
+    max-height: 85vh; /* Limit max height of the results panel relative to viewport */
+    overflow-y: auto; /* Enable internal scrolling for task list */
+}
+
+/* TEXT AREA AND CONTROLS */
+textarea {
+    /* FIX 4: Ensure textarea uses 100% of its parent's width */
+    width: 100%;
+    /* Use box-sizing to prevent padding/border from causing overflow */
+    box-sizing: border-box; 
+    min-height: 250px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.controls button:hover {
+    background-color: #218838;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 15px;
+}
+
+/* TASK CARD STYLING */
+.task-list {
+    margin-top: 10px;
+}
+
+.task-card {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 5px solid;
+    border-radius: 4px;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.1s;
+}
+
+.task-info h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.task-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.priority-tag {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: white;
+    text-align: center;
+    min-width: 70px;
+}
+
+.explanation {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #e9ecef;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+/* COLOR CODING for Status */
+.status-high, .status-overdue {
+    background-color: #dc3545; /* Red */
+}
+.status-medium {
+    background-color: #ffc107; /* Yellow */
+    color: #333;
+}
+.status-low {
+    background-color: #28a745; /* Green */
+}
+.status-blocked {
+    background-color: #6c757d; /* Gray/Muted */
+}
+
+/* RESPONSIVENESS FOR SMALL SCREENS */
+@media (max-width: 768px) {
+    .app-container {
+        min-height: 100vh; 
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+    }
+    main {
+        flex-direction: column; /* Stacks input and results vertically on mobile */
+        width: 100%;
+    }
+    .results-container {
+        max-height: 50vh;
+    }
+}
